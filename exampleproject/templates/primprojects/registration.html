@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<h1>Register User </h1>
+
+<form action="{% url 'register' %}" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="register user" href="{% url 'login' %}">
+
+    <p>After creating a user , To go back to registration form click...<a href="{% url 'login' %}">Registration desk</a></p>
+</form>
+
+
+
+{% endblock content %}

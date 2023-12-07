@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<body>
+    <center>{{df|safe }}</center>
+    {% for nameh in names%}
+    <center>
+    <span class="tag tag--pill tag--sub tag--lg">
+        <a href="{%url 'schedule' nameh.id %}"><small>{{nameh.name}}</small></a>
+      </span> 
+    </center> 
+    {%endfor%}
+</body>
+
+{% endblock %}

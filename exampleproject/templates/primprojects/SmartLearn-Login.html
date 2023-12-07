@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+
+{% comment %} {% if page == register %}
+<h1>Register User </h1>
+
+<form action="{% url 'register' %}" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="register user">
+
+</form>
+<p>already have an account? <a href="{% url 'register' %}">Sign up</a></p>
+
+{% else %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLearn</title>
+  <link rel="stylesheet" href="{% static 'SmartLearn-Login.css' %}" >
+</head>
+
+<body>
+  <h1>SmartLearn</h1>
+<form action="{% url 'login' %}"  method='POST' >
+{% csrf_token %}
+
+  <div class="imgcontainer">
+    <img src="{% static 'images/avatar.jpg' %}" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required><br>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    <button type="submit">Login</button><br> 
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+  </div>
+
+  <div class="container" style="background-color:#f4f4f4">
+    <button type="button" class="cancelbtn">Cancel</button>
+    {% comment %} <span class="psw">Forgot <a href="#">password?</a></span> {% endcomment %}
+  </div>
+</form>
+
+</body>
+</html>
+
+
+{% endblock content %}
